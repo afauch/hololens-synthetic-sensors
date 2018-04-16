@@ -405,6 +405,10 @@ GameObject:
   - component: {fileID: 948597548}
   - component: {fileID: 948597547}
   - component: {fileID: 948597546}
+  - component: {fileID: 948597553}
+  - component: {fileID: 948597552}
+  - component: {fileID: 948597551}
+  - component: {fileID: 948597550}
   m_Layer: 0
   m_Name: microwave-cube
   m_TagString: Untagged
@@ -479,6 +483,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948597550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948597545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d728effe965794d9799cbc3ad4dbd474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crayonStateType: 4
+  _customStateType: activated
+  _crayonMatchKey: customactivated
+  _easing: 11
+  _customEasing: 
+  _duration: 0.8
+  _tweenAppearance: 1
+  _tweenAppearanceMode: 0
+  _material: {fileID: 2100000, guid: 4a26a0993e8174b66b80cccde4172b6f, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _tweenPosition: 1
+  _relativePosition: {x: 0, y: 0.5, z: 0}
+  _tweenRotation: 1
+  _relativeRotation: {x: 0, y: 0, z: 0}
+  _tweenScale: 1
+  _relativeScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &948597551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948597545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d728effe965794d9799cbc3ad4dbd474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crayonStateType: 0
+  _customStateType: 
+  _crayonMatchKey: default
+  _easing: 11
+  _customEasing: 
+  _duration: 0.8
+  _tweenAppearance: 1
+  _tweenAppearanceMode: 0
+  _material: {fileID: 2100000, guid: 235d62480959848f5a398cabcb6b666e, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _tweenPosition: 1
+  _relativePosition: {x: 0, y: 0, z: 0}
+  _tweenRotation: 1
+  _relativeRotation: {x: 0, y: 0, z: 0}
+  _tweenScale: 1
+  _relativeScale: {x: 1, y: 1, z: 1}
+--- !u!114 &948597552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948597545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f7b3157171247d98b139aac4b59052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listenToParent: 0
+  _newPresetId: <Enter A Preset Name>
+  _presetToLoad: inflate-1
+--- !u!114 &948597553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 948597545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToHear: 1
 --- !u!1001 &966206602
 Prefab:
   m_ObjectHideFlags: 0
@@ -669,6 +753,10 @@ GameObject:
   - component: {fileID: 1495102526}
   - component: {fileID: 1495102525}
   - component: {fileID: 1495102524}
+  - component: {fileID: 1495102531}
+  - component: {fileID: 1495102530}
+  - component: {fileID: 1495102529}
+  - component: {fileID: 1495102528}
   m_Layer: 0
   m_Name: door-cube
   m_TagString: Untagged
@@ -743,6 +831,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1495102528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495102523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d728effe965794d9799cbc3ad4dbd474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crayonStateType: 4
+  _customStateType: activated
+  _crayonMatchKey: customactivated
+  _easing: 11
+  _customEasing: 
+  _duration: 0.8
+  _tweenAppearance: 1
+  _tweenAppearanceMode: 0
+  _material: {fileID: 2100000, guid: 4a26a0993e8174b66b80cccde4172b6f, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _tweenPosition: 1
+  _relativePosition: {x: 0, y: 0.5, z: 0}
+  _tweenRotation: 1
+  _relativeRotation: {x: 0, y: 0, z: 0}
+  _tweenScale: 1
+  _relativeScale: {x: 1.2, y: 1.2, z: 1.2}
+--- !u!114 &1495102529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495102523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d728effe965794d9799cbc3ad4dbd474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _crayonStateType: 0
+  _customStateType: 
+  _crayonMatchKey: default
+  _easing: 11
+  _customEasing: 
+  _duration: 0.8
+  _tweenAppearance: 1
+  _tweenAppearanceMode: 0
+  _material: {fileID: 2100000, guid: 235d62480959848f5a398cabcb6b666e, type: 2}
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _tweenPosition: 1
+  _relativePosition: {x: 0, y: 0, z: 0}
+  _tweenRotation: 1
+  _relativeRotation: {x: 0, y: 0, z: 0}
+  _tweenScale: 1
+  _relativeScale: {x: 1, y: 1, z: 1}
+--- !u!114 &1495102530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495102523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f7b3157171247d98b139aac4b59052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _listenToParent: 0
+  _newPresetId: <Enter A Preset Name>
+  _presetToLoad: inflate-1
+--- !u!114 &1495102531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1495102523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventToHear: 2
 --- !u!1 &1812046984
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,6 +1011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _eventToHear: 0
 --- !u!114 &1812046990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,7 +1031,7 @@ MonoBehaviour:
   _duration: 0.8
   _tweenAppearance: 1
   _tweenAppearanceMode: 0
-  _material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  _material: {fileID: 2100000, guid: 235d62480959848f5a398cabcb6b666e, type: 2}
   _color: {r: 1, g: 1, b: 1, a: 1}
   _tweenPosition: 1
   _relativePosition: {x: 0, y: 0, z: 0}
@@ -882,7 +1051,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _listenToParent: 0
-  _newPresetId: <Enter A Preset Name>
+  _newPresetId: 
   _presetToLoad: <Choose Preset>
 --- !u!114 &1812046992
 MonoBehaviour:
@@ -895,9 +1064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d728effe965794d9799cbc3ad4dbd474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _crayonStateType: 2
-  _customStateType: 
-  _crayonMatchKey: selected
+  _crayonStateType: 4
+  _customStateType: activated
+  _crayonMatchKey: customactivated
   _easing: 11
   _customEasing: 
   _duration: 0.8

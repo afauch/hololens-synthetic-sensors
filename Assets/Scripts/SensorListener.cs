@@ -52,13 +52,13 @@ public class SensorListener : MonoBehaviour {
 	// parse result
 	private void ParseJson(string data)
 	{
-		Debug.Log ("Response:");
-		Debug.Log(data);
+		// Debug.Log ("Response:");
+		// Debug.Log(data);
 		// var N = SimpleJSON.JSON.Parse("[" + data + "]");
 		var N = SimpleJSON.JSON.Parse(data);
 
 		string sensorEvents = N["data"]["series"][0]["values"][0][0];
-		Debug.Log (sensorEvents);
+		// Debug.Log (sensorEvents);
 
 		// Send to the Sensor Broadcaster
 		SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorEvents);

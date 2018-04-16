@@ -11,6 +11,13 @@ public class SensorEvent : UnityEvent
 {
 }
 
+public enum SensorKnownEvents
+{
+	Knocking,
+	Microwave,
+	Door
+}
+
 public class SensorEventBroadcaster : MonoBehaviour {
 
 	public static SensorEventBroadcaster instance;
@@ -43,7 +50,7 @@ public class SensorEventBroadcaster : MonoBehaviour {
 		// Check which events are new
 		string newEvent = CompareEvents(eventsList);
 
-		Debug.Log ("newEvent = " + newEvent + "; " + "lastEvent = " + _lastEvents);
+		// Debug.Log ("newEvent = " + newEvent + "; " + "lastEvent = " + _lastEvents);
 		BroadcastHandler (newEvent);
 
 
@@ -73,11 +80,10 @@ public class SensorEventBroadcaster : MonoBehaviour {
 		case "microwave":
 			microwaveEvent.Invoke();
 			break;
-		case "doorEvent":
+		case "door":
 			doorEvent.Invoke();
 			break;
 		default:
-			Debug.Log ("Unrecognized event: " + eventsList);
 			break;
 		}
 
