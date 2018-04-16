@@ -562,7 +562,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventToHear: 1
 --- !u!1001 &966206602
 Prefab:
   m_ObjectHideFlags: 0
@@ -732,15 +731,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   knockingEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1812046989}
+        m_MethodName: OnEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: SensorEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   microwaveEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 948597553}
+        m_MethodName: OnEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: SensorEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   doorEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1495102531}
+        m_MethodName: OnEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: SensorEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1495102523
 GameObject:
@@ -910,7 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventToHear: 2
 --- !u!1 &1812046984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00db030462480471b99ea8d32a719b7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventToHear: 0
 --- !u!114 &1812046990
 MonoBehaviour:
   m_ObjectHideFlags: 0
