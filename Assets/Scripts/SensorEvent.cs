@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class SensorSample {
 		_valueString = valueString;
 
 		//TODO: If desired, can put logic to include the enum here.
+		// But, that really doesn't have to happen on every frame
 	}
 
 }

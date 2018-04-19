@@ -12,14 +12,17 @@ public class SensorListener : MonoBehaviour {
 
 	public static SensorListener instance;
 
+
 	string _clientId = "T8rV9nTSuqeGzkYXsE5uwqbCnlxijPh39sETNEgq";
 	string _clientSecret = "uO2S7sL7fHp5GupB2iIguDXoQKjO3jwb0VRW0lliW5El9xuUCY";
 	string _sensorId = "0f43d3ad-0d5d-4616-9497-d86808ab727f";
 	string _csHost = "https://bd-test.andrew.cmu.edu:81";
 	string _dsHost = "https://bd-test.andrew.cmu.edu:82";
+	string _protoHost = "http://localhost:8080/response.json";
 	private string _accessToken;
 	private bool _poll = false;
 
+	public bool _useProtoHost = false;
 	public string[] _eventsToDetect = {"knocking","microwave","door"};
 	public float _refreshHz = 10;
 
@@ -31,8 +34,13 @@ public class SensorListener : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
 	{
-		
-		StartCoroutine(GetAccessToken());
+
+		if (_useProtoHost) {
+			_poll = true;
+			StartCoroutine (PollForSensorData ());
+		} else {
+			StartCoroutine (GetAccessToken ());
+		}
 
 	}
 	
@@ -70,9 +78,14 @@ public class SensorListener : MonoBehaviour {
 
 		string timestampStart = "0";
 		string timestampEnd = "1524103712";
-		
-		string uri = String.Format("{0}/api/sensor/{1}/timeseries?start_time={2}&end_time={3}", _dsHost, _sensorId, timestampStart, timestampEnd);
 
+		string uri;
+		if (_useProtoHost) {
+			uri = _protoHost;
+		} else {
+			uri = String.Format("{0}/api/sensor/{1}/timeseries?start_time={2}&end_time={3}", _dsHost, _sensorId, timestampStart, timestampEnd);
+		}
+			
 		while (_poll) {
 			
 
@@ -80,8 +93,12 @@ public class SensorListener : MonoBehaviour {
 
 			Debug.Log ("Polling: " + uri);
 			UnityWebRequest req = UnityWebRequest.Get (uri);
-			req.SetRequestHeader ("Authorization", "Bearer " + _accessToken);
-			req.SetRequestHeader ("Accept", "application/json");
+
+			// Only include these if we're doing the real thing.
+			if (!_useProtoHost) {
+				req.SetRequestHeader ("Authorization", "Bearer " + _accessToken);
+				req.SetRequestHeader ("Accept", "application/json");
+			}
 
 			yield return req.SendWebRequest ();
 
@@ -95,7 +112,7 @@ public class SensorListener : MonoBehaviour {
 			Debug.Log (sensorSamples);
 
 			// Send to the Sensor Broadcaster
-			SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorSamples);
+			// SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorSamples);
 
 			yield return new WaitForSeconds (1.0f / _refreshHz);
 		}
@@ -124,7 +141,6 @@ public class SensorListener : MonoBehaviour {
 		{
 			sensorSamples [i] = new SensorSample(jsonArray[0].Value,jsonArray[1].Value);
 		}
-
 		return sensorSamples;
 
 	}

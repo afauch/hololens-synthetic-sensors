@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c5abd354f4b416b8b86b5ebd7639ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _useProtoHost: 1
   _eventsToDetect:
   - knocking
   - microwave

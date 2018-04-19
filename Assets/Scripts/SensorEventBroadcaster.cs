@@ -13,9 +13,9 @@ public class SensorEvent : UnityEvent
 
 public enum SensorKnownEvents
 {
-	Knocking,
-	Microwave,
-	Door
+	knocking,
+	microwave,
+	door
 }
 
 public class SensorEventBroadcaster : MonoBehaviour {
@@ -43,31 +43,28 @@ public class SensorEventBroadcaster : MonoBehaviour {
 		
 	}
 
-	public void OnSensorEventsChanged(SensorSample[] eventsList){
+	public void OnSensorEventsChanged(SensorSample[] samples){
 
-		Debug.Log (eventsList);
+		Debug.Log (samples);
+
+		// Reverse the array so it runs from 
 
 		// Check which events are new
-		// string newEvent = CompareEvents(eventsList);
+		string newEvent = CompareEvents(samples);
 
 		// Debug.Log ("newEvent = " + newEvent + "; " + "lastEvent = " + _lastEvents);
 		// BroadcastHandler (newEvent);
 
 
+
+
 	}
 
-	private string CompareEvents(string eventsList){
+	private string CompareEvents(SensorSample[] samples){
 
-		// TODO: This needs to be modified to handle an array of events
+		// We only care about samples we haven't seen yet.
 
-		if (eventsList == _lastEvents) {
-			_lastEvents = eventsList;
-			return null;
-		} else {
-			_lastEvents = eventsList;
-			return eventsList;
-		}
-
+		return null;
 	}
 
 	private void BroadcastHandler(string eventsList)
