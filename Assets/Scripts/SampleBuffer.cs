@@ -4,12 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public class BufferEvent : UnityEvent<int> { }
+
 public class SampleBuffer : MonoBehaviour
 {
 
 	public static SampleBuffer instance;
 	public List<SensorSample> _buffer;
-	public UnityEvent _bufferUpdated;
+	public BufferEvent _bufferUpdated;
+	public int _readFrom = 0;
 
 	void Awake ()
 	{
@@ -54,12 +57,9 @@ public class SampleBuffer : MonoBehaviour
 					AddSamplesToEndOfBuffer (newSamples);
 
 					break;
-
 				}
-
 			}
-
-
+				
 		} else {
 
 			Debug.Log ("Buffer is empty. Adding samples.");
@@ -74,15 +74,19 @@ public class SampleBuffer : MonoBehaviour
 
 	private void AddSamplesToEndOfBuffer (SensorSample[] samples)
 	{
+
+		// Capture the 'most recent' sample index from the buffer
+		_readFrom = _buffer.Count;
+
 		// Add them to the list
 		foreach (SensorSample sample in samples) {
 			_buffer.Add (sample);
 		}
 
 		// Notify any watchers that the buffer has been updated.
+		Debug.Log ("BufferUpdated invoked. Should read buffer from " + _readFrom);
 		if (_bufferUpdated != null) {
-			Debug.Log ("BufferUpdated invoked");
-			_bufferUpdated.Invoke ();
+			_bufferUpdated.Invoke (_readFrom);
 		}
 
 	}
