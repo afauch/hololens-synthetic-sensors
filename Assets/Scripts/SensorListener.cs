@@ -49,6 +49,7 @@ public class SensorListener : MonoBehaviour {
 	{
 
 
+
 	}
 		
 	private IEnumerator GetAccessToken()
@@ -112,7 +113,7 @@ public class SensorListener : MonoBehaviour {
 			Debug.Log (sensorSamples);
 
 			// Send to the Sensor Broadcaster
-			// SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorSamples);
+			SampleBuffer.instance.ReadSamplesIntoBuffer (sensorSamples);
 
 			yield return new WaitForSeconds (1.0f / _refreshHz);
 		}
@@ -139,7 +140,7 @@ public class SensorListener : MonoBehaviour {
 
 		for (int i = 0; i < sensorSamples.Length; i++)
 		{
-			sensorSamples [i] = new SensorSample(jsonArray[0].Value,jsonArray[1].Value);
+			sensorSamples [i] = new SensorSample(jsonArray[i][0].Value,jsonArray[i][2].Value);
 		}
 		return sensorSamples;
 
