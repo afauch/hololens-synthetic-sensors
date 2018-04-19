@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 
+
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -89,11 +90,12 @@ public class SensorListener : MonoBehaviour {
 
 			var N = ParseJson (result);
 
-			string sensorEvents = N["data"]["series"][0]["values"][0][0];
-			Debug.Log (sensorEvents);
+			JSONArray jsonSensorSamples = N["data"]["series"][0]["values"].AsArray;
+			SensorSample[] sensorSamples = ParseJsonArray (jsonSensorSamples);
+			Debug.Log (sensorSamples);
 
 			// Send to the Sensor Broadcaster
-			SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorEvents);
+			SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorSamples);
 
 			yield return new WaitForSeconds (1.0f / _refreshHz);
 		}
@@ -111,6 +113,20 @@ public class SensorListener : MonoBehaviour {
 		var N = SimpleJSON.JSON.Parse(data);
 
 		return N;
+	}
+
+	private SensorSample[] ParseJsonArray(JSONArray jsonArray)
+	{
+		
+		SensorSample[] sensorSamples = new SensorSample[jsonArray.Count];
+
+		for (int i = 0; i < sensorSamples.Length; i++)
+		{
+			sensorSamples [i] = new SensorSample(jsonArray[0].Value,jsonArray[1].Value);
+		}
+
+		return sensorSamples;
+
 	}
 
 

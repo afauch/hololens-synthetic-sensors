@@ -65,6 +65,7 @@
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonStateData.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonTweenCoroutines.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonUtils.cs" />
+     <Compile Include="Assets\Scripts\SensorEvent.cs" />
      <Compile Include="Assets\Scripts\SensorEventBroadcaster.cs" />
      <Compile Include="Assets\Scripts\SensorListener.cs" />
      <Compile Include="Assets\Scripts\UIListener.cs" />

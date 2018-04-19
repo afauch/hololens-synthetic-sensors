@@ -43,15 +43,15 @@ public class SensorEventBroadcaster : MonoBehaviour {
 		
 	}
 
-	public void OnSensorEventsChanged(string eventsList){
+	public void OnSensorEventsChanged(SensorSample[] eventsList){
 
-		// TODO: This needs to be changed to a loop to handle an array of events
+		Debug.Log (eventsList);
 
 		// Check which events are new
-		string newEvent = CompareEvents(eventsList);
+		// string newEvent = CompareEvents(eventsList);
 
 		// Debug.Log ("newEvent = " + newEvent + "; " + "lastEvent = " + _lastEvents);
-		BroadcastHandler (newEvent);
+		// BroadcastHandler (newEvent);
 
 
 	}
