@@ -11,9 +11,16 @@ public class SensorListener : MonoBehaviour {
 
 	public static SensorListener instance;
 
-	public string _urlBase = "http://localhost:8080/response.json";
+	string _clientId = "T8rV9nTSuqeGzkYXsE5uwqbCnlxijPh39sETNEgq";
+	string _clientSecret = "uO2S7sL7fHp5GupB2iIguDXoQKjO3jwb0VRW0lliW5El9xuUCY";
+	string _sensorId = "0f43d3ad-0d5d-4616-9497-d86808ab727f";
+	string _csHost = "https://bd-test.andrew.cmu.edu:81";
+	string _dsHost = "https://bd-test.andrew.cmu.edu:82";
+	private string _accessToken;
+	private bool _poll = false;
+
 	public string[] _eventsToDetect = {"knocking","microwave","door"};
-	public float _refreshRate;
+	public float _refreshHz = 10;
 
 	void Awake()
 	{
@@ -24,45 +31,86 @@ public class SensorListener : MonoBehaviour {
 	void Start ()
 	{
 		
+		StartCoroutine(GetAccessToken());
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
 
-		StartCoroutine(SendRequest(_urlBase));
 
 	}
 		
-	private IEnumerator SendRequest(string requestString)
+	private IEnumerator GetAccessToken()
 	{
-		// Make the request
-		UnityWebRequest request = UnityWebRequest.Get(requestString);
-		yield return request.Send();
+		string uri = String.Format("{0}/oauth/access_token/client_id={1}/client_secret={2}",_csHost,_clientId,_clientSecret);
+		UnityWebRequest req = UnityWebRequest.Get (uri);
+		yield return req.SendWebRequest ();
 
-		string result = request.downloadHandler.text;
+		string result = req.downloadHandler.text;
+		Debug.Log (result);
 
-		// call function to Parse JSON
-		ParseJson(result);
+		var N = ParseJson (result);
+
+		// Assign Access Token
+		_accessToken = N ["access_token"];
+
+		_poll = true;
+		StartCoroutine (PollForSensorData ());
+
+		yield return null;			
+	}
+
+	private IEnumerator PollForSensorData()
+	{
+
+		// r = requests.get('%s/api/sensor/%s/timeseries?start_time=%d&end_time=%d' % (ds_host, sensor_id, timestamp_start, timestamp_now), headers=headers)
+
+		string timestampStart = "0";
+		string timestampEnd = "1524103712";
+		
+		string uri = String.Format("{0}/api/sensor/{1}/timeseries?start_time={2}&end_time={3}", _dsHost, _sensorId, timestampStart, timestampEnd);
+
+		while (_poll) {
+			
+
+			Debug.Log ("Poll for Sensor Data Called");
+
+			Debug.Log ("Polling: " + uri);
+			UnityWebRequest req = UnityWebRequest.Get (uri);
+			req.SetRequestHeader ("Authorization", "Bearer " + _accessToken);
+			req.SetRequestHeader ("Accept", "application/json");
+
+			yield return req.SendWebRequest ();
+
+			string result = req.downloadHandler.text;
+			Debug.Log (result);
+
+			var N = ParseJson (result);
+
+			string sensorEvents = N["data"]["series"][0]["values"][0][0];
+			Debug.Log (sensorEvents);
+
+			// Send to the Sensor Broadcaster
+			SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorEvents);
+
+			yield return new WaitForSeconds (1.0f / _refreshHz);
+		}
 
 		yield return null;
 
 	}
 
 	// parse result
-	private void ParseJson(string data)
+	private JSONNode ParseJson(string data)
 	{
 		// Debug.Log ("Response:");
 		// Debug.Log(data);
 		// var N = SimpleJSON.JSON.Parse("[" + data + "]");
 		var N = SimpleJSON.JSON.Parse(data);
 
-		string sensorEvents = N["data"]["series"][0]["values"][0][0];
-		// Debug.Log (sensorEvents);
-
-		// Send to the Sensor Broadcaster
-		SensorEventBroadcaster.instance.OnSensorEventsChanged (sensorEvents);
-
+		return N;
 	}
 
 

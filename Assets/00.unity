@@ -140,12 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c5abd354f4b416b8b86b5ebd7639ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _urlBase: http://localhost:8080/response.json
   _eventsToDetect:
   - knocking
   - microwave
   - door
-  _refreshRate: 0
+  _refreshHz: 1
 --- !u!4 &143563387
 Transform:
   m_ObjectHideFlags: 0
