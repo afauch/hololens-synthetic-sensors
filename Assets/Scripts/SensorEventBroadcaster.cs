@@ -42,10 +42,10 @@ public class SensorEventBroadcaster : MonoBehaviour {
 		Debug.Log ("Subscribed to BufferReader");
 
 	}
-		
+
 	public void BroadcastHandler(string sensorEvent) {
 
-		Debug.Log (" === BroadcastHandler called === ");
+		Debug.Log ("=== BroadcastHandler called ===");
 
 		sensorEvent = sensorEvent.ToLower ();
 
