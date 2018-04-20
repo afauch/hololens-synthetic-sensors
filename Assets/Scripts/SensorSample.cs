@@ -7,7 +7,7 @@ public class SensorSample {
 
 	public string _dateTimeString;
 	public string _valueString;
-	public SensorKnownEvents _event;
+	public SensorManagedEvents _event;
 
 	// Constructor
 	public SensorSample(string dateTimeString, string valueString)

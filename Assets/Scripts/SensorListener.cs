@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
-
-
 using UnityEngine;
 using UnityEngine.Networking;
-
+using UnityEngine.Events;
 using SimpleJSON;
+
+public class ListenerEvent : UnityEvent<SensorSample[]> {}
 
 public class SensorListener : MonoBehaviour {
 
 	public static SensorListener instance;
-
 
 	string _clientId = "T8rV9nTSuqeGzkYXsE5uwqbCnlxijPh39sETNEgq";
 	string _clientSecret = "uO2S7sL7fHp5GupB2iIguDXoQKjO3jwb0VRW0lliW5El9xuUCY";
@@ -25,10 +24,18 @@ public class SensorListener : MonoBehaviour {
 	public bool _useProtoHost = false;
 	public string[] _eventsToDetect = {"knocking","microwave","door"};
 	public float _refreshHz = 10;
+	public ListenerEvent _onNewSamples;
 
 	void Awake()
 	{
-		instance = this;
+		if (instance == null) {
+			instance = this;
+			Debug.Log ("SensorListener instance assigned.");
+		}
+
+		if(_onNewSamples == null)
+			_onNewSamples = new ListenerEvent();
+
 	}
 
 	// Use this for initialization
@@ -112,8 +119,11 @@ public class SensorListener : MonoBehaviour {
 			SensorSample[] sensorSamples = ParseJsonArray (jsonSensorSamples);
 			Debug.Log (sensorSamples);
 
-			// Send to the Sensor Broadcaster
-			SampleBuffer.instance.ReadSamplesIntoBuffer (sensorSamples);
+			// Send to the Sensor broadcaster
+			// SampleBuffer.instance.ReadSamplesIntoBuffer (sensorSamples);
+			if (_onNewSamples != null) {
+				_onNewSamples.Invoke (sensorSamples);
+			}
 
 			yield return new WaitForSeconds (1.0f / _refreshHz);
 		}

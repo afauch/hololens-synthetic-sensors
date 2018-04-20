@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-/// <summary>
-/// Unity Event base that others can subscribe to
-/// </summary>
 [System.Serializable]
-public class SensorEvent : UnityEvent
-{
-}
+public class SensorEvent : UnityEvent {}
 
-public enum SensorKnownEvents
+public enum SensorManagedEvents
 {
 	knocking,
 	microwave,
 	door
 }
 
+/// <summary>
+/// This class translates from raw events detected by the Buffer Reader,
+/// into managed events known by the Unity application.
+/// </summary>
 public class SensorEventBroadcaster : MonoBehaviour {
 
 	public static SensorEventBroadcaster instance;
@@ -30,48 +29,27 @@ public class SensorEventBroadcaster : MonoBehaviour {
 	public SensorEvent doorEvent;
 
 	void Awake() {
-		instance = this;
+
+		if (instance == null) {
+			instance = this;
+		}
 	}
 
-	// Use this for initialization
 	void Start () {
+
+		// Subscribe to BufferReader
+		BufferReader.instance._onEventDetected.AddListener(BroadcastHandler);
+		Debug.Log ("Subscribed to BufferReader");
+
+	}
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	public void BroadcastHandler(string sensorEvent) {
 
-	public void OnSensorEventsChanged(SensorSample[] samples){
+		Debug.Log (" === BroadcastHandler called === ");
 
-		Debug.Log (samples);
+		sensorEvent = sensorEvent.ToLower ();
 
-		// Reverse the array so it runs from 
-
-		// Check which events are new
-		string newEvent = CompareEvents(samples);
-
-		// Debug.Log ("newEvent = " + newEvent + "; " + "lastEvent = " + _lastEvents);
-		// BroadcastHandler (newEvent);
-
-
-
-
-	}
-
-	private string CompareEvents(SensorSample[] samples){
-
-		// We only care about samples we haven't seen yet.
-
-
-		return null;
-	}
-
-	private void BroadcastHandler(string eventsList)
-	{
-
-		switch (eventsList) {
+		switch (sensorEvent) {
 		case "knocking":
 			knockingEvent.Invoke();
 			break;

@@ -11,7 +11,8 @@ public class SampleBuffer : MonoBehaviour
 
 	public static SampleBuffer instance;
 	public List<SensorSample> _buffer;
-	public BufferEvent _bufferUpdated;
+	public BufferEvent _onBufferUpdated;
+	[HideInInspector]
 	public int _readFrom = 0;
 
 	void Awake ()
@@ -24,6 +25,16 @@ public class SampleBuffer : MonoBehaviour
 		// Initialize buffer
 		_buffer = new List<SensorSample> ();
 
+		// Initialize buffer event
+		if(_onBufferUpdated == null)
+			_onBufferUpdated = new BufferEvent();
+
+	}
+
+	void Start ()
+	{
+		// Listen to the SensorListener for new samples
+		SensorListener.instance._onNewSamples.AddListener(ReadSamplesIntoBuffer);
 	}
 
 	public void ReadSamplesIntoBuffer (SensorSample[] samples)
@@ -42,15 +53,14 @@ public class SampleBuffer : MonoBehaviour
 				Predicate<SensorSample> sampleFinder = (SensorSample s) => { return (s._dateTimeString == samples[i]._dateTimeString); };
 				bool exists = _buffer.Exists(sampleFinder);
 
+				// If so, continue and check the next sample.
 				if (exists) {
-
-					Debug.Log ("This sample DOES exist in the buffer.");
+					
 					continue;
 
+				// If not, stop here and add all subsequent samples to the buffer.
 				} else {
-
-					Debug.Log ("This sample DOES NOT exist in the buffer.");
-
+					
 					// Add the new samples to the buffer
 					SensorSample[] newSamples = new SensorSample[samples.Length - i];
 					Array.Copy(samples, i, newSamples, 0, samples.Length - i);
@@ -85,8 +95,8 @@ public class SampleBuffer : MonoBehaviour
 
 		// Notify any watchers that the buffer has been updated.
 		Debug.Log ("BufferUpdated invoked. Should read buffer from " + _readFrom);
-		if (_bufferUpdated != null) {
-			_bufferUpdated.Invoke (_readFrom);
+		if (_onBufferUpdated != null) {
+			_onBufferUpdated.Invoke (_readFrom);
 		}
 
 	}
