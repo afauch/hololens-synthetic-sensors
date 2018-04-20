@@ -49,7 +49,6 @@ public class BufferReader : MonoBehaviour {
 				
 				_lastEvent = sampleEvent;
 				if (_onEventDetected != null) {
-					Debug.Log ("Invoked onEventDetected for " + sampleEvent);
 					_onEventDetected.Invoke (sampleEvent);
 				}
 

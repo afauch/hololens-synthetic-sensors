@@ -39,13 +39,12 @@ public class SensorEventBroadcaster : MonoBehaviour {
 
 		// Subscribe to BufferReader
 		BufferReader.instance._onEventDetected.AddListener(BroadcastHandler);
-		Debug.Log ("Subscribed to BufferReader");
 
 	}
 
 	public void BroadcastHandler(string sensorEvent) {
 
-		Debug.Log ("=== BroadcastHandler called ===");
+		Debug.Log ("Calling event for " + sensorEvent);
 
 		sensorEvent = sensorEvent.ToLower ();
 

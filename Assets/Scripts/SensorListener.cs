@@ -30,7 +30,6 @@ public class SensorListener : MonoBehaviour {
 	{
 		if (instance == null) {
 			instance = this;
-			Debug.Log ("SensorListener instance assigned.");
 		}
 
 		if(_onNewSamples == null)
@@ -66,7 +65,7 @@ public class SensorListener : MonoBehaviour {
 		yield return req.SendWebRequest ();
 
 		string result = req.downloadHandler.text;
-		Debug.Log (result);
+		// Debug.Log (result);
 
 		var N = ParseJson (result);
 
@@ -97,7 +96,7 @@ public class SensorListener : MonoBehaviour {
 		while (_poll) {
 			
 
-			Debug.Log ("Poll for Sensor Data Called");
+			// Debug.Log ("Poll for Sensor Data Called");
 
 			Debug.Log ("Polling: " + uri);
 			UnityWebRequest req = UnityWebRequest.Get (uri);
@@ -117,7 +116,6 @@ public class SensorListener : MonoBehaviour {
 
 			JSONArray jsonSensorSamples = N["data"]["series"][0]["values"].AsArray;
 			SensorSample[] sensorSamples = ParseJsonArray (jsonSensorSamples);
-			Debug.Log (sensorSamples);
 
 			// Send to the Sensor broadcaster
 			// SampleBuffer.instance.ReadSamplesIntoBuffer (sensorSamples);
