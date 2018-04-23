@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\SensorListener.cs" />
      <Compile Include="Assets\Scripts\SensorSample.cs" />
      <Compile Include="Assets\Scripts\UIListener.cs" />
+     <Compile Include="Assets\Scripts\WebhooksTest.cs" />
      <None Include="Assets\Crayon\UserPresets\inflate-1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
