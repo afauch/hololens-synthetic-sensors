@@ -2,12 +2,8 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Webhooks/ServerTest.cs">
     <Files>
-      <File FileName="Assets/Scripts/SensorListener.cs" Line="61" Column="1" />
-      <File FileName="Assets/Scripts/BufferReader.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SensorEventBroadcaster.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UIListener.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Webhooks/ServerTest.cs" Line="25" Column="37" />
-      <File FileName="Assets/Scripts/Webhooks/WebhooksTest.cs" Line="25" Column="21" />
+      <File FileName="Assets/Scripts/Webhooks/ServerTest.cs" Line="51" Column="30" />
+      <File FileName="Assets/Scripts/Webhooks/WebhooksTest.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
