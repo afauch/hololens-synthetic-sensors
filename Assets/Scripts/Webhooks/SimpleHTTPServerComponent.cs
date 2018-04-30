@@ -19,16 +19,20 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 	SimpleHTTPServer myServer;
 	public string FirstIndexPath = "";
 
+	// This is the port that other endpoints can post to
+	public static int customPort = 9999;
+
 	void Start() {
-
 		StartServer ();
-
 	}
 
 	public void StartServer()
 	{
 		myServer = new SimpleHTTPServer(Path.Combine(Application.streamingAssetsPath, "App"));
-		Application.OpenURL("http://localhost:" + myServer.Port + "/" + FirstIndexPath);
+
+		// This just opens it up in the browser (not necessary here)
+		// Application.OpenURL("http://localhost:" + myServer.Port + "/" + FirstIndexPath);
+
 	}
 
 	public void StopServer()
@@ -153,7 +157,8 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 			//get an empty port
 			TcpListener l = new TcpListener(IPAddress.Loopback, 0);
 			l.Start();
-			int port = ((IPEndPoint)l.LocalEndpoint).Port;
+			// int port = ((IPEndPoint)l.LocalEndpoint).Port;
+			int port = customPort;
 			l.Stop();
 			this.Initialize(path, port);
 		}
