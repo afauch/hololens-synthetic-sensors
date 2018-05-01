@@ -17,10 +17,6 @@ using UnityEngine;
 public class SimpleHTTPServerComponent : MonoBehaviour
 {
 	SimpleHTTPServer myServer;
-	public string FirstIndexPath = "";
-
-	// This is the port that other endpoints can post to
-	public static int customPort = 9999;
 
 	void Start() {
 		StartServer ();
@@ -48,13 +44,6 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 
 	class SimpleHTTPServer
 	{
-		private readonly string[] _indexFiles =
-		{ 
-			"index.html", 
-			"index.htm", 
-			"default.html", 
-			"default.htm" 
-		};
 
 		private static IDictionary<string, string> _mimeTypeMappings = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
 		{
@@ -127,6 +116,7 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 			{ ".zip", "application/zip" },
 			#endregion
 		};
+
 		private Thread _serverThread;
 		private string _rootDirectory;
 		private HttpListener _listener;
@@ -158,7 +148,7 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 			TcpListener l = new TcpListener(IPAddress.Loopback, 0);
 			l.Start();
 			// int port = ((IPEndPoint)l.LocalEndpoint).Port;
-			int port = customPort;
+			int port = WebhooksManager.instance._port;
 			l.Stop();
 			this.Initialize(path, port);
 		}
@@ -197,7 +187,7 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 		{
 			// Optional - handling the URL
 			string filename = context.Request.Url.AbsolutePath;
-			UnityEngine.Debug.Log("Request.Url.AbsolutPath: " + filename);
+			UnityEngine.Debug.Log("Request.Url: " + context.Request.Url.ToString());
 			filename = filename.Substring(1);
 
 			try

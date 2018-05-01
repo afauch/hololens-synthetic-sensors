@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 26222114}
   - component: {fileID: 26222115}
   m_Layer: 0
-  m_Name: '[WebhooksTest]'
+  m_Name: '[WebhooksManager]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,11 +215,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 26222113}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80aa1a53e567444bb99f4d0d0fd58454, type: 3}
+  m_Script: {fileID: 11500000, guid: fea768ddacd014bd596aec754bccc9a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _serverEndpoint: http://localhost:8080/
-  _clientEndpoint: xyz
+  _port: 9999
+  _ip: 
+  _absoluteUri: /
+  _fullClientEndpoint: 
+  _sensorServerEndpoint: http://localhost:8080
 --- !u!1 &1073129951
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23590dfd1778742a792f548f3f47420b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstIndexPath: index.html
 --- !u!4 &1073129953
 Transform:
   m_ObjectHideFlags: 0
