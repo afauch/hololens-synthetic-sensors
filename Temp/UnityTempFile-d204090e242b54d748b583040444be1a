@@ -207,7 +207,7 @@
 'Assets/Scripts/SensorListener.cs'
 'Assets/Scripts/SensorSample.cs'
 'Assets/Scripts/UIListener.cs'
-'Assets/Scripts/Webhooks/ServerTest.cs'
+'Assets/Scripts/Webhooks/SimpleHTTPServerComponent.cs'
 'Assets/Scripts/Webhooks/WebhooksTest.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'

@@ -181,7 +181,10 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 			{
 				try
 				{
+					UnityEngine.Debug.Log("Trying _listener.GetContext()");
+					// This is a blocking method - it waits
 					HttpListenerContext context = _listener.GetContext();
+					UnityEngine.Debug.Log("_listener.GetContext() Called");
 					Process(context);
 				} catch (Exception ex)
 				{
@@ -192,68 +195,49 @@ public class SimpleHTTPServerComponent : MonoBehaviour
 
 		private void Process(HttpListenerContext context)
 		{
+			// Optional - handling the URL
 			string filename = context.Request.Url.AbsolutePath;
-			print(filename);
+			UnityEngine.Debug.Log("Request.Url.AbsolutPath: " + filename);
 			filename = filename.Substring(1);
 
-			if (string.IsNullOrEmpty(filename))
+			try
 			{
-				foreach (string indexFile in _indexFiles)
-				{
-					if (File.Exists(Path.Combine(_rootDirectory, indexFile)))
-					{
-						filename = indexFile;
-						break;
-					}
-				}
+
+			// This is copied from here:
+			// https://stackoverflow.com/questions/7004616/how-to-use-httplistener-to-receive-http-post-which-contain-xml
+			var body = new StreamReader(context.Request.InputStream).ReadToEnd();
+			string stringBody = body.ToString ();
+			UnityEngine.Debug.Log (stringBody);
+
+			byte[] b = Encoding.UTF8.GetBytes("POST Received");
+			context.Response.StatusCode = 200;
+			context.Response.KeepAlive = false;
+			context.Response.ContentLength64 = b.Length;
+
+			var output = context.Response.OutputStream;
+			output.Write(b, 0, b.Length);
+			context.Response.Close();
+
 			}
-
-			filename = Path.Combine(_rootDirectory, filename);
-
-			if (File.Exists(filename))
+			catch (Exception ex)
 			{
-				try
-				{
-					context.Response.StatusCode = (int)HttpStatusCode.OK;
-					Stream input = new FileStream(filename, FileMode.Open);
-
-					//Adding permanent http response headers
-					string mime;
-					context.Response.ContentType = _mimeTypeMappings.TryGetValue(Path.GetExtension(filename), out mime) ? mime : "application/octet-stream";
-					context.Response.ContentLength64 = input.Length;
-					context.Response.AddHeader("Date", DateTime.Now.ToString("r"));
-					context.Response.AddHeader("Last-Modified", System.IO.File.GetLastWriteTime(filename).ToString("r"));
-
-					byte[] buffer = new byte[1024 * 16];
-					int nbytes;
-					while ((nbytes = input.Read(buffer, 0, buffer.Length)) > 0)
-						context.Response.OutputStream.Write(buffer, 0, nbytes);
-					input.Close();
-
-
-					context.Response.OutputStream.Flush();
-				} catch (Exception ex)
-				{
-					context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-					print(ex);
-				}
-
-			} else
-			{
-				context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+				context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+				print(ex);
 			}
 
 			context.Response.OutputStream.Close();
+
 		}
 
 		private void Initialize(string path, int port)
 		{
 			this._rootDirectory = path;
 			this._port = port;
+
+			// Starts the server thread
 			_serverThread = new Thread(this.Listen);
 			_serverThread.Start();
 		}
-
 
 	}
 }

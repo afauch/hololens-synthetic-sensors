@@ -201,7 +201,6 @@
 'Assets/Crayon/Scripts/Library/CrayonStateData.cs'
 'Assets/Crayon/Scripts/Library/CrayonTweenCoroutines.cs'
 'Assets/Crayon/Scripts/Library/CrayonUtils.cs'
-'Assets/NewBehaviourScript.cs'
 'Assets/Scripts/BufferReader.cs'
 'Assets/Scripts/SampleBuffer.cs'
 'Assets/Scripts/SensorEventBroadcaster.cs'
