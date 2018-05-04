@@ -12,16 +12,21 @@ public class SensorListener : MonoBehaviour {
 
 	public static SensorListener instance;
 
-	string _clientId = "T8rV9nTSuqeGzkYXsE5uwqbCnlxijPh39sETNEgq";
-	string _clientSecret = "uO2S7sL7fHp5GupB2iIguDXoQKjO3jwb0VRW0lliW5El9xuUCY";
-	string _sensorId = "0f43d3ad-0d5d-4616-9497-d86808ab727f";
+	[Header("BuildingDepot")]
+	public string _clientId = "HoR418ntNCbAYQA7R6j8rqdNexMehYOcSNqIFesT";
+	public string _clientSecret = "PfAvtUbFlQPH9ZqKDBgg2NcXtSlHwwPGja8rDrpRQcnj2TUnhE";
+	public string _sensorId = "ab411355-e6b1-483f-b4b2-7f3e0dee361c";
 	string _csHost = "https://bd-test.andrew.cmu.edu:81";
 	string _dsHost = "https://bd-test.andrew.cmu.edu:82";
-	string _protoHost = "http://localhost:8080/response.json";
+
 	private string _accessToken;
 	private bool _poll = false;
 
+	[Header("Proto Host")]
 	public bool _useProtoHost = false;
+	string _protoHost = "http://localhost:8080/response.json";
+
+	[Header("Events")]
 	public string[] _eventsToDetect = {"knocking","microwave","door"};
 	public float _refreshHz = 10;
 	public ListenerEvent _onNewSamples;

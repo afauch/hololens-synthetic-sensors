@@ -14,7 +14,11 @@ public class WebhooksManager : MonoBehaviour {
 	public int _port = 9999;
 	public string _ip;
 	public string _absoluteUri = "";
+
+	[Header("Device")]
+	public string _clientDeviceId; // this is a device ID to accompany the endpoint
 	public string _fullClientEndpoint;	// this is the HoloLens client endpoint that will receive updates; this gets sent to the _sensorServerEndpoint
+
 	public string _sensorServerEndpoint; // this is the URL for the webhooks server that will be doing polling for us then posting to our _fullClientEndpoint
 
 	void Awake() {
@@ -33,7 +37,8 @@ public class WebhooksManager : MonoBehaviour {
 	/// Listen for user event to make the subscription
 	/// </summary>
 	void Update () {
-		if (Input.GetKeyUp (KeyCode.Space)) {
+		//  Subscribe
+		if (Input.GetKeyUp (KeyCode.S)) {
 			StartCoroutine (PostURL ());
 		}
 	}
@@ -66,9 +71,9 @@ public class WebhooksManager : MonoBehaviour {
 	private IEnumerator PostURL()
 	{
 		string uri = _sensorServerEndpoint;
-		string reqBody = "endpoint: " + _fullClientEndpoint;
+		string reqBody = "{\"device_id\":\"" + _clientDeviceId + "\", \"endpoint\":\"" + _fullClientEndpoint + "\"}";
 		UnityWebRequest req = UnityWebRequest.Post (uri, reqBody);
-		req.SetRequestHeader ("Content-Type", "text/plain");
+		req.SetRequestHeader ("Content-Type", "application/json");
 		Debug.Log ("Sending request: " + reqBody);
 		yield return req.SendWebRequest ();
 
