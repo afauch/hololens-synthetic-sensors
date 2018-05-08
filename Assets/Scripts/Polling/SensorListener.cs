@@ -120,6 +120,7 @@ public class SensorListener : MonoBehaviour {
 			string result = req.downloadHandler.text;
             Debug.Log("Polling result");
 			Debug.Log (result);
+            DebugVR.instance.Log(result);
 
 			var N = ParseJson (result);
 
