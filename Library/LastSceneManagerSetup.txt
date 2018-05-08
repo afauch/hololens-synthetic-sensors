@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/02.unity
+- path: Assets/Scenes/FittsLaw/02 - Bluetooth.unity
   isLoaded: 1
   isActive: 1

@@ -1,0 +1,153 @@
+{
+    "_id": "capsule-tag-1",
+    "_crayonStatesData": [
+        {
+            "_crayonStateType": 0,
+            "_customStateType": "",
+            "_crayonMatchKey": "default",
+            "_easing": 11,
+            "_customEasing": "",
+            "_duration": 0.20000000298023225,
+            "_tweenAppearance": true,
+            "_tweenAppearanceMode": 0,
+            "_color": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            },
+            "_material": {
+                "instanceID": 12268
+            },
+            "_tweenPosition": true,
+            "_relativePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenRotation": true,
+            "_relativeRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenScale": true,
+            "_relativeScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "_crayonStateType": 1,
+            "_customStateType": "",
+            "_crayonMatchKey": "hover",
+            "_easing": 11,
+            "_customEasing": "",
+            "_duration": 0.20000000298023225,
+            "_tweenAppearance": true,
+            "_tweenAppearanceMode": 0,
+            "_color": {
+                "r": 0.43382352590560915,
+                "g": 0.43382352590560915,
+                "b": 0.43382352590560915,
+                "a": 1.0
+            },
+            "_material": {
+                "instanceID": 11988
+            },
+            "_tweenPosition": false,
+            "_relativePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenRotation": false,
+            "_relativeRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenScale": false,
+            "_relativeScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "_crayonStateType": 2,
+            "_customStateType": "",
+            "_crayonMatchKey": "selected",
+            "_easing": 11,
+            "_customEasing": "",
+            "_duration": 0.20000000298023225,
+            "_tweenAppearance": true,
+            "_tweenAppearanceMode": 0,
+            "_color": {
+                "r": 0.14705884456634522,
+                "g": 0.8235292434692383,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "_material": {
+                "instanceID": 13196
+            },
+            "_tweenPosition": false,
+            "_relativePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenRotation": false,
+            "_relativeRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenScale": false,
+            "_relativeScale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "_crayonStateType": 4,
+            "_customStateType": "selectedhover",
+            "_crayonMatchKey": "customselectedhover",
+            "_easing": 11,
+            "_customEasing": "",
+            "_duration": 0.20000000298023225,
+            "_tweenAppearance": true,
+            "_tweenAppearanceMode": 0,
+            "_color": {
+                "r": 0.595588207244873,
+                "g": 0.9161357879638672,
+                "b": 1.0,
+                "a": 1.0
+            },
+            "_material": {
+                "instanceID": 12664
+            },
+            "_tweenPosition": false,
+            "_relativePosition": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenRotation": false,
+            "_relativeRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "_tweenScale": false,
+            "_relativeScale": {
+                "x": 1.2000000476837159,
+                "y": 1.2000000476837159,
+                "z": 1.2000000476837159
+            }
+        }
+    ]
+}

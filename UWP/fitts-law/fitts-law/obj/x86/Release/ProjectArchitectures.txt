@@ -1,0 +1,4 @@
+D:\Documents\Github\fitts-law\UWP\fitts-law\fitts-law\fitts-law.csproj;x86
+D:\Documents\Github\fitts-law\UWP\fitts-law\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+D:\Documents\Github\fitts-law\UWP\fitts-law\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
+D:\Documents\Github\fitts-law\UWP\fitts-law\GeneratedProjects\UWP\Assembly-CSharp-firstpass\Assembly-CSharp-firstpass.csproj;x86
