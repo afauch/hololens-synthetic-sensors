@@ -145,6 +145,7 @@ MonoBehaviour:
   _sensorId: 7286b888-e47c-4af4-8653-a8e5e941cfe5
   _useProtoHost: 0
   _refreshHz: 0.3
+  _secondsDelta: 60
 --- !u!4 &143563387
 Transform:
   m_ObjectHideFlags: 0
