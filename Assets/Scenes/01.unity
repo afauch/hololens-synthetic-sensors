@@ -140,12 +140,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c5abd354f4b416b8b86b5ebd7639ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _clientId: HoR418ntNCbAYQA7R6j8rqdNexMehYOcSNqIFesT
+  _clientSecret: PfAvtUbFlQPH9ZqKDBgg2NcXtSlHwwPGja8rDrpRQcnj2TUnhE
+  _sensorId: 7286b888-e47c-4af4-8653-a8e5e941cfe5
   _useProtoHost: 0
   _eventsToDetect:
-  - knocking
-  - microwave
-  - door
-  _refreshHz: 1
+  - Knocking
+  - Microwave Running
+  - Writing on Boarding
+  _refreshHz: 0.3
 --- !u!4 &143563387
 Transform:
   m_ObjectHideFlags: 0

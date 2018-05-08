@@ -88,14 +88,16 @@ public class SensorListener : MonoBehaviour {
 
 		// r = requests.get('%s/api/sensor/%s/timeseries?start_time=%d&end_time=%d' % (ds_host, sensor_id, timestamp_start, timestamp_now), headers=headers)
 
+		// it accepts timestamp
 		string timestampStart = "0";
-		string timestampEnd = "1524103712";
+		// string timestampEnd = "1524103712";
+		Int32 timestampEnd = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
 
 		string uri;
 		if (_useProtoHost) {
 			uri = _protoHost;
 		} else {
-			uri = String.Format("{0}/api/sensor/{1}/timeseries?start_time={2}&end_time={3}", _dsHost, _sensorId, timestampStart, timestampEnd);
+			uri = String.Format("{0}/api/sensor/{1}/timeseries?start_time={2}&end_time={3}", _dsHost, _sensorId, timestampStart, timestampEnd.ToString());
 		}
 			
 		while (_poll) {
