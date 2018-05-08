@@ -26,7 +26,12 @@ public class SensorEventBroadcaster : MonoBehaviour {
 	// All sensor events
 	public SensorEvent knockingEvent;
 	public SensorEvent microwaveEvent;
-	public SensorEvent doorEvent;
+	public SensorEvent boardEvent;
+
+	// Strings to read for
+	const string knockingString = "Writing on Boarding";
+	const string microwaveString = "Microwave Running";
+	const string boardString = "Knocking";
 
 	void Awake() {
 
@@ -44,19 +49,20 @@ public class SensorEventBroadcaster : MonoBehaviour {
 
 	public void BroadcastHandler(string sensorEvent) {
 
-		Debug.Log ("Calling event for " + sensorEvent);
-
-		sensorEvent = sensorEvent.ToLower ();
+		sensorEvent = sensorEvent;
 
 		switch (sensorEvent) {
-		case "knocking":
+		case knockingString:
+			Debug.Log ("Calling event for " + sensorEvent);
 			knockingEvent.Invoke();
 			break;
-		case "microwave":
+		case microwaveString:
+			Debug.Log ("Calling event for " + sensorEvent);
 			microwaveEvent.Invoke();
 			break;
-		case "door":
-			doorEvent.Invoke();
+		case boardString:
+			Debug.Log ("Calling event for " + sensorEvent);
+			boardEvent.Invoke();
 			break;
 		default:
 			break;

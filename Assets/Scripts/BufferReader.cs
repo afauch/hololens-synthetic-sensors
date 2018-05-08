@@ -38,20 +38,19 @@ public class BufferReader : MonoBehaviour {
 	void ReadSamplesFromBuffer(int readFrom)
 	{
 
-		// Read through the buffer, sample by sample, checking if that sample's event
-		// is the same as the 'lastEvent.'
+		// Read through the buffer, sample by sample, looking for a 'START:' event
 		for (int i = readFrom; i < SampleBuffer.instance._buffer.Count; i++) {
 
 			string sampleEvent = SampleBuffer.instance._buffer [i]._valueString;
 
 			// If it's not the same as the last event, that means it's a new event.
-			if (sampleEvent != _lastEvent) {
-				
-				_lastEvent = sampleEvent;
+			if (sampleEvent.StartsWith ("START:")) {
+				// trim the "START" off
+				sampleEvent = sampleEvent.Substring (6, sampleEvent.Length - 6);
+				Debug.Log (sampleEvent);
 				if (_onEventDetected != null) {
 					_onEventDetected.Invoke (sampleEvent);
 				}
-
 			}
 
 			// Update the global counter

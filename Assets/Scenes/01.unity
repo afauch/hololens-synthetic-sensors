@@ -144,10 +144,6 @@ MonoBehaviour:
   _clientSecret: PfAvtUbFlQPH9ZqKDBgg2NcXtSlHwwPGja8rDrpRQcnj2TUnhE
   _sensorId: 7286b888-e47c-4af4-8653-a8e5e941cfe5
   _useProtoHost: 0
-  _eventsToDetect:
-  - Knocking
-  - Microwave Running
-  - Writing on Boarding
   _refreshHz: 0.3
 --- !u!4 &143563387
 Transform:
@@ -402,7 +398,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 787737720}
-  m_Text: door
+  m_Text: board
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1
@@ -761,7 +757,7 @@ GameObject:
   - component: {fileID: 1495102529}
   - component: {fileID: 1495102528}
   m_Layer: 0
-  m_Name: door-cube
+  m_Name: board-cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -970,7 +966,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: SensorEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  doorEvent:
+  boardEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1495102531}

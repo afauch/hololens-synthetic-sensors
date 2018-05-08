@@ -27,8 +27,7 @@ public class SensorListener : MonoBehaviour {
 	string _protoHost = "http://localhost:8080/response.json";
 
 	[Header("Events")]
-	public string[] _eventsToDetect = {"knocking","microwave","door"};
-	public float _refreshHz = 10;
+	public float _refreshHz = 1;
 	public ListenerEvent _onNewSamples;
 
 	void Awake()
