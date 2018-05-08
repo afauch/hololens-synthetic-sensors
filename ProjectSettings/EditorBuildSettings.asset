@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FittsLaw/02 - Bluetooth.unity
-    guid: 68878e468bbb1e04c9e748fdf5b6072b
+    path: Assets/Scenes/Mites/02.unity
+    guid: 7c907f6d0a03916479db70f44aea37d2

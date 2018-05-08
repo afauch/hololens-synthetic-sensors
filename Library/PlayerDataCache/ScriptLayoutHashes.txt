@@ -356,3 +356,8 @@ f8a336331055a3ae9cc7b382c9b97974 Assembly-CSharp.dll:HoloToolkit.Unity.InputModu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Sharing.Tests.RemoteHeadManager
 c1cc82b2110e41150c5ad19a512334bd Assembly-CSharp.dll:HoloToolkit.Examples.Prototyping.FadeColors
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:HoloToolkit.Examples.SpatialUnderstandingFeatureOverview.ShapeDefinition
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UIListener
+c50042bd69288068bc07e60a40c262ce Assembly-CSharp.dll:.SensorEventBroadcaster
+21ce04bc6238ab988c95b7b9b004ddac Assembly-CSharp.dll:.SampleBuffer
+cac509181827db9ba4a34ec0021067fa Assembly-CSharp.dll:.SensorListener
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.BufferReader
