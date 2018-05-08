@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
@@ -75,7 +76,7 @@ public class WebhooksManager : MonoBehaviour {
 		UnityWebRequest req = UnityWebRequest.Post (uri, reqBody);
 		req.SetRequestHeader ("Content-Type", "application/json");
 		Debug.Log ("Sending request: " + reqBody);
-		yield return req.SendWebRequest ();
+		yield return req.Send ();
 
 		string result = req.downloadHandler.text;
 		Debug.Log (result);
@@ -85,3 +86,4 @@ public class WebhooksManager : MonoBehaviour {
 
 
 }
+#endif

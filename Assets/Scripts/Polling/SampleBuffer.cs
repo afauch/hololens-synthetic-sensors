@@ -72,7 +72,7 @@ public class SampleBuffer : MonoBehaviour
 				
 		} else {
 
-			Debug.Log ("Buffer is empty. Adding samples.");
+			// Debug.Log ("Buffer is empty. Adding samples.");
 			// Add them to the list
 			AddSamplesToEndOfBuffer (samples);
 
@@ -94,7 +94,7 @@ public class SampleBuffer : MonoBehaviour
 		}
 
 		// Notify any watchers that the buffer has been updated.
-		Debug.Log ("BufferUpdated invoked. Should read buffer from " + _readFrom);
+		// Debug.Log ("BufferUpdated invoked. Should read buffer from " + _readFrom);
 		if (_onBufferUpdated != null) {
 			_onBufferUpdated.Invoke (_readFrom);
 		}

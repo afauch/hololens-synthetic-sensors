@@ -24,7 +24,7 @@ public class SensorListener : MonoBehaviour {
 
 	[Header("Proto Host")]
 	public bool _useProtoHost = false;
-	string _protoHost = "http://localhost:8080/response.json";
+	public string _protoHost = "http://localhost:8080/response.json";
 
 	[Header("Events")]
 	public float _refreshHz = 1;
@@ -67,9 +67,10 @@ public class SensorListener : MonoBehaviour {
 	{
 		string uri = String.Format("{0}/oauth/access_token/client_id={1}/client_secret={2}",_csHost,_clientId,_clientSecret);
 		UnityWebRequest req = UnityWebRequest.Get (uri);
-		yield return req.SendWebRequest ();
+		yield return req.Send ();
 
 		string result = req.downloadHandler.text;
+        // Debug.Log("Auth result:");
 		// Debug.Log (result);
 
 		var N = ParseJson (result);
@@ -105,7 +106,7 @@ public class SensorListener : MonoBehaviour {
 
 			// Debug.Log ("Poll for Sensor Data Called");
 
-			Debug.Log ("Polling: " + uri);
+			// Debug.Log ("Polling: " + uri);
 			UnityWebRequest req = UnityWebRequest.Get (uri);
 
 			// Only include these if we're doing the real thing.
@@ -114,9 +115,10 @@ public class SensorListener : MonoBehaviour {
 				req.SetRequestHeader ("Accept", "application/json");
 			}
 
-			yield return req.SendWebRequest ();
+			yield return req.Send ();
 
 			string result = req.downloadHandler.text;
+            Debug.Log("Polling result");
 			Debug.Log (result);
 
 			var N = ParseJson (result);

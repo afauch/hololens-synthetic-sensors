@@ -29,9 +29,9 @@ public class SensorEventBroadcaster : MonoBehaviour {
 	public SensorEvent boardEvent;
 
 	// Strings to read for
-	const string knockingString = "Writing on Boarding";
+	const string knockingString = "Knocking";
 	const string microwaveString = "Microwave Running";
-	const string boardString = "Knocking";
+	const string boardString = "Writing on Boarding";
 
 	void Awake() {
 
@@ -48,8 +48,6 @@ public class SensorEventBroadcaster : MonoBehaviour {
 	}
 
 	public void BroadcastHandler(string sensorEvent) {
-
-		sensorEvent = sensorEvent;
 
 		switch (sensorEvent) {
 		case knockingString:
