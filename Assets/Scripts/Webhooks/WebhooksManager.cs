@@ -33,17 +33,6 @@ public class WebhooksManager : MonoBehaviour {
 		_fullClientEndpoint = ConstructEndpoint ();
 	}
 
-
-	/// <summary>
-	/// Listen for user event to make the subscription
-	/// </summary>
-	void Update () {
-		//  Subscribe
-		if (Input.GetKeyUp (KeyCode.S)) {
-			StartCoroutine (PostURL ());
-		}
-	}
-
 	/// <summary>
 	/// Constructs the endpoint to send to the webhooks server.
 	/// </summary>
@@ -68,10 +57,15 @@ public class WebhooksManager : MonoBehaviour {
 		throw new Exception("No network adapters with an IPv4 address in the system!");
 	}
 
-	// Post the client endpoint to the sensor server
-	private IEnumerator PostURL()
+	// Method for handling
+	public void SubscribeToSensor(VirtualSensor sensor)
 	{
-		string uri = _sensorServerEndpoint;
+		StartCoroutine (SubscribeToSensor (sensor._sensorServerEndpoint));
+	}
+
+	// Post the client endpoint to the sensor server
+	private IEnumerator SubscribeToSensor(string uri)
+	{
 		string reqBody = "{\"device_id\":\"" + _clientDeviceId + "\", \"endpoint\":\"" + _fullClientEndpoint + "\"}";
 		UnityWebRequest req = UnityWebRequest.Post (uri, reqBody);
 		req.SetRequestHeader ("Content-Type", "application/json");

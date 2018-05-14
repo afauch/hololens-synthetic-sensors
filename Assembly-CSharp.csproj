@@ -75,6 +75,8 @@
      <Compile Include="Assets\Scripts\Polling\UIListener.cs" />
      <Compile Include="Assets\Scripts\Webhooks\SimpleHTTPServerComponent.cs" />
      <Compile Include="Assets\Scripts\Webhooks\WebhooksManager.cs" />
+     <Compile Include="Assets\VirtualHMD.cs" />
+     <Compile Include="Assets\VirtualSensor.cs" />
      <None Include="Assets\Crayon\UserPresets\inflate-1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
