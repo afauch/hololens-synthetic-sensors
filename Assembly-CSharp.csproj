@@ -65,8 +65,6 @@
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonStateData.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonTweenCoroutines.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonUtils.cs" />
-     <Compile Include="Assets\PlayerController.cs" />
-     <Compile Include="Assets\PlayerFollow.cs" />
      <Compile Include="Assets\Scripts\Polling\BufferReader.cs" />
      <Compile Include="Assets\Scripts\Polling\SampleBuffer.cs" />
      <Compile Include="Assets\Scripts\Polling\SensorEventBroadcaster.cs" />
@@ -74,9 +72,11 @@
      <Compile Include="Assets\Scripts\Polling\SensorSample.cs" />
      <Compile Include="Assets\Scripts\Polling\UIListener.cs" />
      <Compile Include="Assets\Scripts\Webhooks\SimpleHTTPServerComponent.cs" />
+     <Compile Include="Assets\Scripts\Webhooks\Simulation\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Webhooks\Simulation\PlayerFollow.cs" />
+     <Compile Include="Assets\Scripts\Webhooks\Simulation\VirtualHMD.cs" />
+     <Compile Include="Assets\Scripts\Webhooks\Simulation\VirtualSensor.cs" />
      <Compile Include="Assets\Scripts\Webhooks\WebhooksManager.cs" />
-     <Compile Include="Assets\VirtualHMD.cs" />
-     <Compile Include="Assets\VirtualSensor.cs" />
      <None Include="Assets\Crayon\UserPresets\inflate-1.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
