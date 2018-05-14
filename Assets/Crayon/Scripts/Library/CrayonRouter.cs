@@ -8,7 +8,8 @@ namespace Crayon.Core
 	/// <summary>
 	/// FadeDirection enum used in the CrayonExtension methods.
 	/// </summary>
-	public enum FadeDirection {
+	public enum FadeDirection
+    {
 		In,
 		Out
 	}
@@ -17,7 +18,8 @@ namespace Crayon.Core
 	/// This class handles variations from the publicly-exposed extension methods and reconfigures them for use by
 	/// more generic coroutines.
 	/// </summary>
-	public static class CrayonRouter {
+	public static class CrayonRouter
+    {
 
 		/// <summary>
 		/// Generic method to handle all opacity transitions.
@@ -27,11 +29,17 @@ namespace Crayon.Core
 			Transform[] objectAndChildren = gameObject.GetComponentsInChildren<Transform> ();
 			// If there are child objects, loop through them
 			for(int i = 0; i < objectAndChildren.Length; i++) {
-				// TODO: Provide a check to see whether the child component already has this code.
-				// I was hitting issues before where child objects were not fading in because they had their own
-				// components calling the same coroutine
-				CrayonRunner.Instance.Run (CrayonTweenCoroutines.FadeCoroutine (objectAndChildren[i].gameObject, fadeDirection, opacity, duration, easing, destroy, cubicBezier));
-			}
+                // TODO: Provide a check to see whether the child component already has this code.
+                // I was hitting issues before where child objects were not fading in because they had their own
+                // components calling the same coroutine
+                if (objectAndChildren[i].gameObject.GetComponent<Renderer>() != null)
+                {
+                    CrayonRunner.Instance.Run(CrayonTweenCoroutines.FadeCoroutine(objectAndChildren[i].gameObject, fadeDirection, opacity, duration, easing, destroy, cubicBezier));
+                } else
+                {
+                    Debug.LogWarningFormat("{0} has no renderer, so will not fade.", objectAndChildren[i].gameObject.name);
+                }
+                }
 		}
 
 		/// <summary>
