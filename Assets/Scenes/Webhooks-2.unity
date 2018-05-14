@@ -178,52 +178,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &26222113
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 26222114}
-  - component: {fileID: 26222115}
-  m_Layer: 0
-  m_Name: '[WebhooksManager]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &26222114
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 26222113}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.048000008, z: 0.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &26222115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 26222113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fea768ddacd014bd596aec754bccc9a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _port: 9999
-  _ip: 
-  _absoluteUri: /
-  _clientDeviceId: hololens.001
-  _fullClientEndpoint: 
-  _sensorServerEndpoint: 
 --- !u!1 &310028727
 GameObject:
   m_ObjectHideFlags: 0
@@ -237,7 +191,7 @@ GameObject:
   - component: {fileID: 310028728}
   - component: {fileID: 310028732}
   m_Layer: 0
-  m_Name: VirtualSensor
+  m_Name: 11111
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -308,7 +262,7 @@ Transform:
   m_Children:
   - {fileID: 1936406753}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &310028732
 MonoBehaviour:
@@ -321,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80da8a6cd544adcbd896539d3cc611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensorServerEndpoint: http://localhost:8080/webhooks/
+  _sensorServerEndpoint: http://localhost:11111/webhooks/
 --- !u!1 &596907346
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +332,7 @@ GameObject:
   - component: {fileID: 640648340}
   - component: {fileID: 640648339}
   m_Layer: 0
-  m_Name: VirtualSensor (1)
+  m_Name: 22222
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80da8a6cd544adcbd896539d3cc611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensorServerEndpoint: http://localhost:8080/webhooks/
+  _sensorServerEndpoint: http://localhost:22222/webhooks/
 --- !u!23 &640648340
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -461,7 +415,7 @@ Transform:
   m_Children:
   - {fileID: 1102411548}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &696428368
 GameObject:
@@ -476,7 +430,7 @@ GameObject:
   - component: {fileID: 696428370}
   - component: {fileID: 696428369}
   m_Layer: 0
-  m_Name: VirtualSensor (2)
+  m_Name: 33333
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80da8a6cd544adcbd896539d3cc611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensorServerEndpoint: http://localhost:8080/webhooks/
+  _sensorServerEndpoint: http://localhost:33333/webhooks/
 --- !u!23 &696428370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -559,47 +513,7 @@ Transform:
   m_Children:
   - {fileID: 1341142657}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1073129951
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1073129953}
-  - component: {fileID: 1073129952}
-  m_Layer: 0
-  m_Name: '[Server]'
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1073129952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1073129951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23590dfd1778742a792f548f3f47420b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1073129953
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1073129951}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.048000008, z: 0.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1088745766
 GameObject:
@@ -615,6 +529,8 @@ GameObject:
   - component: {fileID: 1088745771}
   - component: {fileID: 1088745772}
   - component: {fileID: 1088745773}
+  - component: {fileID: 1088745775}
+  - component: {fileID: 1088745774}
   m_Layer: 0
   m_Name: Device
   m_TagString: Untagged
@@ -683,12 +599,12 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1088745766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24160957, y: 1.53, z: 0.39211082}
+  m_LocalPosition: {x: 0, y: 1.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1536779598}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1088745771
 Rigidbody:
@@ -728,6 +644,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd23c67980aa043cb8d8de02c2992972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1088745774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088745766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23590dfd1778742a792f548f3f47420b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1088745775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088745766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea768ddacd014bd596aec754bccc9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _port: 9999
+  _ip: 
+  _absoluteUri: /
+  _clientDeviceId: hololens.001
+  _fullClientEndpoint: 
 --- !u!1 &1102411547
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1008,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1789381386
 GameObject:
@@ -1142,7 +1085,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1789381386}
   m_LocalRotation: {x: 0.35355338, y: -0.35355338, z: 0.1464466, w: 0.8535535}
-  m_LocalPosition: {x: 10, y: 0, z: 10}
+  m_LocalPosition: {x: 5, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 596907348}

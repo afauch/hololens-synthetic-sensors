@@ -20,8 +20,6 @@ public class WebhooksManager : MonoBehaviour {
 	public string _clientDeviceId; // this is a device ID to accompany the endpoint
 	public string _fullClientEndpoint;	// this is the HoloLens client endpoint that will receive updates; this gets sent to the _sensorServerEndpoint
 
-	public string _sensorServerEndpoint; // this is the URL for the webhooks server that will be doing polling for us then posting to our _fullClientEndpoint
-
 	void Awake() {
 		if (instance == null) {
 			instance = this;
@@ -57,16 +55,22 @@ public class WebhooksManager : MonoBehaviour {
 		throw new Exception("No network adapters with an IPv4 address in the system!");
 	}
 
-	// Method for handling
+	// Method for handling subscriptions
 	public void SubscribeToSensor(VirtualSensor sensor)
 	{
-		StartCoroutine (SubscribeToSensor (sensor._sensorServerEndpoint));
+		StartCoroutine (ManageSubscriptionToSensor (sensor._sensorServerEndpoint, "subscribe"));
+	}
+
+
+	public void UnsubscribeFromSensor(VirtualSensor sensor)
+	{
+		StartCoroutine (ManageSubscriptionToSensor (sensor._sensorServerEndpoint, "unsubscribe"));
 	}
 
 	// Post the client endpoint to the sensor server
-	private IEnumerator SubscribeToSensor(string uri)
+	private IEnumerator ManageSubscriptionToSensor(string uri, string action)
 	{
-		string reqBody = "{\"device_id\":\"" + _clientDeviceId + "\", \"endpoint\":\"" + _fullClientEndpoint + "\"}";
+		string reqBody = "{\"device_id\":\"" + _clientDeviceId + "\",\"endpoint\":\"" + _fullClientEndpoint + "\",\"action\":\"" + action + "\"}";
 		UnityWebRequest req = UnityWebRequest.Post (uri, reqBody);
 		req.SetRequestHeader ("Content-Type", "application/json");
 		Debug.Log ("Sending request: " + reqBody);
