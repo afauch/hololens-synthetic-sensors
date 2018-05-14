@@ -65,6 +65,8 @@
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonStateData.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonTweenCoroutines.cs" />
      <Compile Include="Assets\Crayon\Scripts\Library\CrayonUtils.cs" />
+     <Compile Include="Assets\PlayerController.cs" />
+     <Compile Include="Assets\PlayerFollow.cs" />
      <Compile Include="Assets\Scripts\Polling\BufferReader.cs" />
      <Compile Include="Assets\Scripts\Polling\SampleBuffer.cs" />
      <Compile Include="Assets\Scripts\Polling\SensorEventBroadcaster.cs" />
